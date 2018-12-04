@@ -19,6 +19,7 @@ func (r *ResultManager) Manage() {
 			continue
 		case err := <-r.ReceiveErr:
 			r.ReturnErr <- err
+			return
 		}
 	}
 	r.ReturnOK <- true
